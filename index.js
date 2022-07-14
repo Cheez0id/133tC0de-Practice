@@ -1,9 +1,5 @@
-// /**
-//  * @param {number[]} nums
-//  * @param {number} target
-//  * @return {number[]}
-//  */
 
+//Leetcode two sum javascript
 let nums = [3,2,4];
 let target = 6;
 
@@ -19,11 +15,11 @@ let twoSum = function (nums, target) {
   } 
 };
 
-
 twoSum(nums, target);
 
-//I think i need a for loop to run through the given array; I need to add two numbers in the array to meet the target, then return which indicies they are.
-//thought: can i do 2 for loops to find 2 indicies? I don't think I should have to.
+// Runtime: 408 ms, faster than 5.01% of JavaScript online submissions for Two Sum.
+// Memory Usage: 43.1 MB, less than 29.84% of JavaScript online submissions for Two Sum.
+
 
 // // Write a function that takes in an integer and outputs the sum of all the numbers from 1 to that integer.
 
