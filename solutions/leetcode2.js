@@ -35,25 +35,24 @@ class LinkedList{
 let node1 = new ListNode(2)
 let node2 = new ListNode(4)
 let node3 = new ListNode(3)
-// let node4 = new ListNode(7)
 
 //defining next node
 node1.next= node2
 node2.next = node3
-// node3.next = node4
+
 
 //create the linked list
-let list = new LinkedList(node1)
+let l1 = new LinkedList(node1)
 
 // console log the nodes in the list we just made
-console.log(`${list.head.data} is the first node, ${list.head.next.data} is the second`)
+console.log(`${l1.head.data} is the first node, ${l1.head.next.data} is the second, ${l1.head.next.next.data} should be the third.`)
 
 // this shows 2 and 4, respectively... let's see if we can look at the entire list and if the third number (3) is there
-console.log(list);
+console.log(l1);
 // RETURNED:LinkedList {
 //   head: ListNode { data: 2, next: ListNode { data: 4, next: [ListNode] } }
 // }
-//out of curiosity, let's try 4 - i am curious if it will display the data for the third node; nope -t returned the same response for 'list'; probably because we made a new linked list with node 1, NOT with node 2 - hmm ANYWAY that was a sidetrack from the reference.  AHA here is the next piece to the puzzle
+//out of curiosity, let's try 4 - i am curious if it will display the data for the third node; nope -t returned the same response for 'list'; probably because we made a new linked list with node 1, NOT with node 2 - hmm ANYWAY...
 
 // size() returns the number of nodes present in the linked list
 // clear() empties out the list
