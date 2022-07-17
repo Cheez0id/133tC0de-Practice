@@ -58,9 +58,9 @@ console.log(
 );
 
 // this shows 2 and 4, respectively... let's see if we can look at the entire list and if the third number (3) is there
-console.log(l1);
-console.log(l2);
-console.log(JSON.stringify(l1));
+// console.log(l1);
+// console.log(l2);
+// console.log(JSON.stringify(l1));
 // RETURNED:LinkedList {
 //   head: ListNode { data: 2, next: ListNode { data: 4, next: [ListNode] } }
 // }
@@ -86,33 +86,65 @@ console.log(JSON.stringify(l1));
 //What if there is a way to .map into a linked list? hmm
 
 //let's try to reverse a linked list...
-//OK so I checked online and I don't understand the solution there.  
+//OK so I checked online and I don't understand the solution there.
 
+// reverse a linked list
 
-// reverse a linked list  
-
+//_______________________________________________________________________________________________________________________________________
 // after attempts to understand how to reverse and add the two linked lists together, I've decided to rever to a solution provided by a youtuber.
 //https://youtu.be/3cTFm2uWrps
 
 //he wants to make sure we can traverse both lists!! That is an important granularization that I missed.  I should have asked myself "what do I want to do? Reverse the lists- Well, WHAT DO I NEED in order to be able to reverse the lists. "  The answer is that I need to be able to TRAVERSE the lists.
+//ALSO It's really important that the person who is explaining this solution is not breaking the lists down in order to add them - he is writing a block of code that is going to add the values of the two lists together.  Much more efficient.  It seems like he's building the components in order to DO the tasks required before completing each one of the tasks.  (example, he's putting traversal in place but not actually testing it... maybe we could console log at this point... and creating the additon functionality before running anything?)
 
+console.log(l1);
 
-var addTwoNumbers = function (l1, l2) {
-    //we are making a while loop; the while loop will loop through a block of code so long as the specified condition is true.  while(condition){code block};
-    //so, below we are saying while either l1 or l2 (nice touch, we are streamlining the answer so that we are resolving both lists at the same time!! nice);
-    while (l1 || l2){
-        //if l1 or l2, l1 equals l1.next.  What i think this does is that we are taking the list in (taking all of it's data and values) and assigning the l1 variable to equal l1.next- what l1.next is is the NEXT NODE in the linked list (because we defined what l1.next is previously -or rather, that's been pre-defined by the problem because they are giving us linked lists to work with)
-        if (l1){
-            l1 = l1.next
-        }
-        if (l2){
-            l2 = l2.next
-        }
+var addTwoNumbers = function () {
+  //6.1. take new value and assign to linked list. we need to think about returning. We need to create a head for our linked list; we are using the linkedlist as above, and for now a value is set for zero - a way to keep track of our nodes
+  let head = new ListNode(0)
+  let node = head
+
+  let carry = 0
+  //we are making a while loop; the while loop will loop through a block of code so long as the specified condition is true.  while(condition){code block};
+  //so, below we are saying while either l1 or l2 (nice touch, we are streamlining the answer so that we are resolving both lists at the same time!! nice);
+  while (l1 || l2) {
+    //2. we need to calculate a running sum; so we are going to grab the values from l1 and l2, which might be different lengths; we are going to make sure the value extracted is either l1 or a default value (a good default vaule is 0 because it won't affect the sum)
+    let l1Value = l1 ? l1.val : 0
+    let l2Value = l2 ? l2.val : 0
+
+    // //3.this is us saying we are going to add the values of both together; andthen we need a carry - we need something to add TO, so it's gotta be zero** LET 0 for math crap!**
+    let sum = l1Value + l2Value + carry
+    carry = 0
+    //5. we are creating newvalue to STORE the new linked list
+    let newVaule = sum
+
+    //4. if the sum of that value is greater than 9, we need to strip off the carry over.  it's a math thing - so like, each node can Only be valued 0-9, because each one only has 1 digit.  if you look at simple addition, that's how it works.  math words are more complicated than they are when you have to break them down, but remember 1+1 =2?  well, if 19+19 = 38, the way we get TO that is we add 9 plus 9 getting 18, carry the 10, and then add 10+10+10 to get 30, and then 30+8 is 38.  So, maybe in the future we can remember when solving arithmatic problems to write them out and talk them out in simple math terms.
+    if (sum > 9) {
+      //this is going to strip the 10 off
+      newVaule = sum % 10
+      //the carry will always be 1, because of the damn math lol
+      carry = 1
     }
+
+    //6.2. why are we doing this down here...
+    node.next = new ListNode(newVaule)
+    node = node.next
+
+    //1.if l1 or l2, l1 equals l1.next.  What i think this does is that we are taking the list in (taking all of it's data and values) and assigning the l1 variable to equal l1.next- what l1.next is is the NEXT NODE in the linked list (because we defined what l1.next is previously -or rather, that's been pre-defined by the problem because they are giving us linked lists to work with);
+    if (l1) {
+      l1 = l1.next
+    }
+    if (l2) {
+      l2 = l2.next
+    }
+  }
+  if (carry){
+    node.next = new ListNode(carry)
+  }
+  return head.next
 };
 
-
-
+console.log(addTwoNumbers())
 
 //----------------------COMMENTS BELOW CAN BE IGNORED -----------
 
