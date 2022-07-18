@@ -1,5 +1,6 @@
 //Leetcode 2. Add Two Numbers - Javascript (https://leetcode.com/problems/add-two-numbers/)
 //note for reference: https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/
+// additional reference https://youtu.be/3cTFm2uWrps
 
 // /**
 //  * Definition for singly-linked list.
@@ -99,7 +100,7 @@ console.log(
 
 console.log(l1);
 
-var addTwoNumbers = function () {
+var addTwoNumbers = function (l1, l2) {
   //6.1. take new value and assign to linked list. we need to think about returning. We need to create a head for our linked list; we are using the linkedlist as above, and for now a value is set for zero - a way to keep track of our nodes
   let head = new ListNode(0)
   let node = head
@@ -145,6 +146,43 @@ var addTwoNumbers = function () {
 };
 
 console.log(addTwoNumbers())
+
+
+// here is the consolidated solution code from the youtube video
+// var addTwoNumbers = function(l1, l2) {
+//   let head = new ListNode(0)
+//   let node = head
+//   let carry = 0
+  
+//   while (l1 || l2) {
+//   let l1Value = l1 ? l1.val : 0
+//   let l2Value = l2 ? l2.val : 0
+  
+//   let sum = l1Value + l2Value + carry
+//   carry = 0
+//   let newVaule = sum
+  
+//   if (sum > 9) {
+//     newVaule = sum % 10
+//     carry = 1
+//   }
+      
+//   node.next = new ListNode(newVaule)
+//   node = node.next
+      
+//   if (l1) {
+//     l1 = l1.next
+//   }
+//   if (l2) {
+//     l2 = l2.next
+//   }
+// }
+// if (carry){
+//   node.next = new ListNode(carry)
+// }
+// return head.next
+  
+// };
 
 //----------------------COMMENTS BELOW CAN BE IGNORED -----------
 
