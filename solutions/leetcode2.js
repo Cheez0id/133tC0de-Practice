@@ -151,13 +151,56 @@ let l2 = new LinkedList(node4);
 // console.log(addTwoNumbers())
 
 
-// console.log(l1);
 console.log(JSON.stringify(l1.head.data));
+
+let linkedListicle = {
+  val: 5,
+  next: {
+    val: 3,
+    next: {
+      val: 10,
+      next: null,
+    },
+  },
+};
+
+console.log(l1);
+console.log(linkedListicle);
+console.log(l1.head.data);
+console.log(linkedListicle.val);
+//returns:
+// LinkedList {
+//   head: ListNode { data: 2, next: ListNode { data: 4, next: [ListNode] } }
+// }
+// { val: 5, next: { val: 3, next: { val: 10, next: null } } }
+// 2
+// 5
+
+
+let testLoop = () =>{
+  console.log(`start inside function`);
+  console.log(l1);
+  console.log(linkedListicle);
+  console.log(l1.head.data);
+  console.log(linkedListicle.val);
+
+const arr = [];
+let head = linkedList;
+
+while (head !== null) {
+  arr.push(head.val);
+  head = head.next;
+}
+
+console.log(`hey hey arrrayyyy  ${arr}`);
+}
+testLoop();
+
 
 
 
 // here is the consolidated solution code from the youtube video
-var addTwoNumbers = function(l1, l2) {
+let addTwoNumbers = function(l1, l2) {
   console.log(l1)
   console.log(l2)
   let head = new ListNode(0)
