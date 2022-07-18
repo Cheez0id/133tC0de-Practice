@@ -23,6 +23,8 @@ class ListNode {
   }
 }
 
+
+
 // implementing a linked list; remember, a constructor is a special function in javascript that Creates and Initalizes an object instance of a class - we are defining the functionality to create and set values for this new class. In this LinkedList class, the constructs is saying if the head node is not passed, the head is intalized as null.  SO I think that when we create a new list we have to define the head?
 class LinkedList {
   constructor(head = null) {
@@ -35,6 +37,8 @@ class LinkedList {
 let node1 = new ListNode(2);
 let node2 = new ListNode(4);
 let node3 = new ListNode(3);
+
+
 let node4 = new ListNode(5);
 let node5 = new ListNode(6);
 let node6 = new ListNode(4);
@@ -51,12 +55,12 @@ let l1 = new LinkedList(node1);
 let l2 = new LinkedList(node4);
 
 // console log the nodes in the list we just made
-console.log(
-  `${l1.head.data} is the first node, ${l1.head.next.data} is the second, ${l1.head.next.next.data} should be the third.`
-);
-console.log(
-  `${l2.head.data} is the first node, ${l2.head.next.data} is the second, ${l2.head.next.next.data} should be the third.`
-);
+// console.log(
+//   `${l1.head.data} is the first node, ${l1.head.next.data} is the second, ${l1.head.next.next.data} should be the third.`
+// );
+// console.log(
+//   `${l2.head.data} is the first node, ${l2.head.next.data} is the second, ${l2.head.next.next.data} should be the third.`
+// );
 
 // this shows 2 and 4, respectively... let's see if we can look at the entire list and if the third number (3) is there
 // console.log(l1);
@@ -98,91 +102,121 @@ console.log(
 //he wants to make sure we can traverse both lists!! That is an important granularization that I missed.  I should have asked myself "what do I want to do? Reverse the lists- Well, WHAT DO I NEED in order to be able to reverse the lists. "  The answer is that I need to be able to TRAVERSE the lists.
 //ALSO It's really important that the person who is explaining this solution is not breaking the lists down in order to add them - he is writing a block of code that is going to add the values of the two lists together.  Much more efficient.  It seems like he's building the components in order to DO the tasks required before completing each one of the tasks.  (example, he's putting traversal in place but not actually testing it... maybe we could console log at this point... and creating the additon functionality before running anything?)
 
-console.log(l1);
 
-var addTwoNumbers = function (l1, l2) {
-  //6.1. take new value and assign to linked list. we need to think about returning. We need to create a head for our linked list; we are using the linkedlist as above, and for now a value is set for zero - a way to keep track of our nodes
-  let head = new ListNode(0)
-  let node = head
+// var addTwoNumbers = function (l1, l2) {
+//   //6.1. take new value and assign to linked list. we need to think about returning. We need to create a head for our linked list; we are using the linkedlist as above, and for now a value is set for zero - a way to keep track of our nodes
+//   let head = new ListNode(0)
+//   let node = head
 
-  let carry = 0
-  //we are making a while loop; the while loop will loop through a block of code so long as the specified condition is true.  while(condition){code block};
-  //so, below we are saying while either l1 or l2 (nice touch, we are streamlining the answer so that we are resolving both lists at the same time!! nice);
-  while (l1 || l2) {
-    //2. we need to calculate a running sum; so we are going to grab the values from l1 and l2, which might be different lengths; we are going to make sure the value extracted is either l1 or a default value (a good default vaule is 0 because it won't affect the sum)
-    let l1Value = l1 ? l1.val : 0
-    let l2Value = l2 ? l2.val : 0
+//   let carry = 0
+//   //we are making a while loop; the while loop will loop through a block of code so long as the specified condition is true.  while(condition){code block};
+//   //so, below we are saying while either l1 or l2 (nice touch, we are streamlining the answer so that we are resolving both lists at the same time!! nice);
+//   while (l1 || l2) {
+//     //2. we need to calculate a running sum; so we are going to grab the values from l1 and l2, which might be different lengths; we are going to make sure the value extracted is either l1 or a default value (a good default vaule is 0 because it won't affect the sum)
+//     let l1Value = l1 ? l1.val : 0
+//     let l2Value = l2 ? l2.val : 0
 
-    // //3.this is us saying we are going to add the values of both together; andthen we need a carry - we need something to add TO, so it's gotta be zero** LET 0 for math crap!**
-    let sum = l1Value + l2Value + carry
-    carry = 0
-    //5. we are creating newvalue to STORE the new linked list
-    let newVaule = sum
+//     // //3.this is us saying we are going to add the values of both together; andthen we need a carry - we need something to add TO, so it's gotta be zero** LET 0 for math crap!**
+//     let sum = l1Value + l2Value + carry
+//     carry = 0
+//     //5. we are creating newvalue to STORE the new linked list
+//     let newVaule = sum
 
-    //4. if the sum of that value is greater than 9, we need to strip off the carry over.  it's a math thing - so like, each node can Only be valued 0-9, because each one only has 1 digit.  if you look at simple addition, that's how it works.  math words are more complicated than they are when you have to break them down, but remember 1+1 =2?  well, if 19+19 = 38, the way we get TO that is we add 9 plus 9 getting 18, carry the 10, and then add 10+10+10 to get 30, and then 30+8 is 38.  So, maybe in the future we can remember when solving arithmatic problems to write them out and talk them out in simple math terms.
-    if (sum > 9) {
-      //this is going to strip the 10 off
-      newVaule = sum % 10
-      //the carry will always be 1, because of the damn math lol
-      carry = 1
-    }
+//     //4. if the sum of that value is greater than 9, we need to strip off the carry over.  it's a math thing - so like, each node can Only be valued 0-9, because each one only has 1 digit.  if you look at simple addition, that's how it works.  math words are more complicated than they are when you have to break them down, but remember 1+1 =2?  well, if 19+19 = 38, the way we get TO that is we add 9 plus 9 getting 18, carry the 10, and then add 10+10+10 to get 30, and then 30+8 is 38.  So, maybe in the future we can remember when solving arithmatic problems to write them out and talk them out in simple math terms.
+//     if (sum > 9) {
+//       //this is going to strip the 10 off
+//       newVaule = sum % 10
+//       //the carry will always be 1, because of the damn math lol
+//       carry = 1
+//     }
 
-    //6.2. why are we doing this down here...
-    node.next = new ListNode(newVaule)
-    node = node.next
+//     //6.2. why are we doing this down here...
+//     node.next = new ListNode(newVaule)
+//     node = node.next
 
-    //1.if l1 or l2, l1 equals l1.next.  What i think this does is that we are taking the list in (taking all of it's data and values) and assigning the l1 variable to equal l1.next- what l1.next is is the NEXT NODE in the linked list (because we defined what l1.next is previously -or rather, that's been pre-defined by the problem because they are giving us linked lists to work with);
-    if (l1) {
-      l1 = l1.next
-    }
-    if (l2) {
-      l2 = l2.next
-    }
-  }
-  if (carry){
-    node.next = new ListNode(carry)
-  }
-  return head.next
-};
+//     //1.if l1 or l2, l1 equals l1.next.  What i think this does is that we are taking the list in (taking all of it's data and values) and assigning the l1 variable to equal l1.next- what l1.next is is the NEXT NODE in the linked list (because we defined what l1.next is previously -or rather, that's been pre-defined by the problem because they are giving us linked lists to work with);
+//     if (l1) {
+//       l1 = l1.next
+//     }
+//     if (l2) {
+//       l2 = l2.next
+//     }
+//   }
+//   if (carry){
+//     node.next = new ListNode(carry)
+//   }
+//   return head.next
+// };
 
-console.log(addTwoNumbers())
+// console.log(addTwoNumbers())
+
+
+// console.log(l1);
+console.log(JSON.stringify(l1.head.data));
+
 
 
 // here is the consolidated solution code from the youtube video
-// var addTwoNumbers = function(l1, l2) {
-//   let head = new ListNode(0)
-//   let node = head
-//   let carry = 0
+var addTwoNumbers = function(l1, l2) {
+  console.log(l1)
+  console.log(l2)
+  let head = new ListNode(0)
+  let node = head
+  let carry = 0
+
+
+  while (l1 || l2) {
+  let l1Value = l1 ? l1.data : 0
+  let l2Value = l2 ? l2.data : 0
+  // console.log(`hey this is the val or the data! ${l1.head.data} or the ${l1.head.next.data} or maybe ${l1}`);
+console.log(`hey this is the l1Value: ${l1Value}`)
+
+  let sum = l1Value + l2Value + carry
+  carry = 0
+  let newVaule = sum
   
-//   while (l1 || l2) {
-//   let l1Value = l1 ? l1.val : 0
-//   let l2Value = l2 ? l2.val : 0
-  
-//   let sum = l1Value + l2Value + carry
-//   carry = 0
-//   let newVaule = sum
-  
-//   if (sum > 9) {
-//     newVaule = sum % 10
-//     carry = 1
-//   }
+  if (sum > 9) {
+    newVaule = sum % 10
+    carry = 1
+  }
       
-//   node.next = new ListNode(newVaule)
-//   node = node.next
+  node.next = new ListNode(newVaule)
+  node = node.next
       
-//   if (l1) {
-//     l1 = l1.next
-//   }
-//   if (l2) {
-//     l2 = l2.next
-//   }
-// }
-// if (carry){
-//   node.next = new ListNode(carry)
-// }
-// return head.next
+  if (l1) {
+    l1 = l1.next
+  }
+  if (l2) {
+    l2 = l2.next
+  }
+}
+if (carry){
+  node.next = new ListNode(carry)
+}
+return head.next
   
-// };
+};
+
+console.log(addTwoNumbers(l1,l2))
+
+//__________________________________ TROUBLESHOOTING__________________________//
+
+// //so, this solution works in the leetcode thing, but not here in the vs code.  I found https://typeofnan.dev/interview-practice-traversing-a-linked-list-in-javascript/ which shows how to loop through a linked list.
+// //make an empty array, ok
+// const arr = [];
+// // create a variable to hold somethingcalled linkedlist
+// let head = linkedList;
+
+// //make a while loop that says, while the head is not null PUSH to the head of the array the value of the head of the linked list,
+// while (head !== null) {
+//   arr.push(head.val);
+//   //and then make the head become the next item in the linked list
+//   head = head.next;
+// }
+
+// // console.log(arr);
+// // [5, 3, 10]
+
 
 //----------------------COMMENTS BELOW CAN BE IGNORED -----------
 
