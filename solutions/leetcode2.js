@@ -268,7 +268,35 @@ console.log(addTwoNumbers(l1,l2))
 
 const keys = Object.keys(l1);
 console.log(keys);
+//returns an array with the key for the object... but not the nested objects which is how the linked list works...**note to self: try this with an object with multiple key and value pairs**
+// [ 'head' ]
+keys.forEach((key, index) =>{
+  console.log(`${key}: ${l1[key]}`)
+});
+//returns the key for the object and an array that shows there are more objects in there (two)- 
+// head: [object Object]
 
+Object.values(l1).forEach(key => console.log(key));
+//returns AHA! ok so... this gives us the first node and its value, and the second node and its value
+// ListNode {
+//   data: 2,
+//   next: ListNode { data: 4, next: ListNode { data: 3, next: null } }
+// }
+
+
+// const entries = Object.entries(l1);
+// console.log(entries);
+//returns an array with an array inside it listing the key and value... it's still not travelling down into the rest of the liked nodes though
+//[ [ 'head', ListNode { data: 2, next: [ListNode] } ] ]
+// Object.entries(l1).forEach(([pikachu, value]) => {
+//   console.log(`${pikachu}: ${value}`)
+// });
+// returns
+// [ [ 'head', ListNode { data: 2, next: [ListNode] } ] ]
+// head: [object Object]
+
+
+//____________________and finally, just going to watch a traversy thing: https://www.youtube.com/watch?v=ZBdE8DElQQU&ab_channel=TraversyMedia
 
 //----------------------COMMENTS BELOW CAN BE IGNORED -----------
 
