@@ -177,24 +177,24 @@ console.log(linkedListicle.val);
 // 5
 
 
-let testLoop = () =>{
-  console.log(`start inside function`);
-  console.log(l1);
-  console.log(linkedListicle);
-  console.log(l1.head.data);
-  console.log(linkedListicle.val);
+// let testLoop = () =>{
+//   console.log(`start inside function`);
+//   console.log(l1);
+//   console.log(linkedListicle);
+//   console.log(l1.head.data);
+//   console.log(linkedListicle.val);
 
-const arr = [];
-let head = linkedList;
+// const arr = [];
+// let head = linkedList;
 
-while (head !== null) {
-  arr.push(head.val);
-  head = head.next;
-}
+// while (head !== null) {
+//   arr.push(head.val);
+//   head = head.next;
+// }
 
-console.log(`hey hey arrrayyyy  ${arr}`);
-}
-testLoop();
+// console.log(`hey hey arrrayyyy  ${arr}`);
+// }
+// testLoop();
 
 
 
@@ -259,6 +259,15 @@ console.log(addTwoNumbers(l1,l2))
 
 // // console.log(arr);
 // // [5, 3, 10]
+
+
+
+//___________________ LEARNING LOOPING THROUGH OBJECTS ______________//
+// found a resource online https://flexiple.com/loop-through-object-javascript/
+
+
+const keys = Object.keys(l1);
+console.log(keys);
 
 
 //----------------------COMMENTS BELOW CAN BE IGNORED -----------
