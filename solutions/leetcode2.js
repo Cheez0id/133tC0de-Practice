@@ -2,6 +2,25 @@
 //note for reference: https://www.freecodecamp.org/news/implementing-a-linked-list-in-javascript/
 // additional reference https://youtu.be/3cTFm2uWrps
 
+function ListNodeBob(val, next) {
+       this.val = (val===undefined ? 0 : val)
+       this.next = (next===undefined ? null : next)
+  }
+
+const spoon = new ListNodeBob(2, new ListNodeBob(3, new ListNodeBob(4)))
+
+// console.log(spoon)
+// Object.values(spoon).forEach(key => console.log(key));
+console.log('this one', spoon)
+var currentNode = spoon
+//NOLAN IS A GENUIS
+while (currentNode || (currentNode !== null && currentNode.next)) {
+  let value = currentNode.val
+  console.log(value)
+  currentNode = currentNode.next
+}
+return
+
 // /**
 //  * Definition for singly-linked list.
 //  * function ListNode(val, next) {
@@ -29,6 +48,14 @@ class ListNode {
 class LinkedList {
   constructor(head = null) {
     this.head = head;
+  }
+  
+  inspect(depth, opts) {
+    return this.toString();
+  }
+
+  toString(){
+    return "i'm a LinkedList []";
   }
 }
 
@@ -151,7 +178,7 @@ let l2 = new LinkedList(node4);
 // console.log(addTwoNumbers())
 
 
-console.log(JSON.stringify(l1.head.data));
+// console.log(JSON.stringify(l1.head.data));
 
 let linkedListicle = {
   val: 5,
@@ -165,9 +192,9 @@ let linkedListicle = {
 };
 
 console.log(l1);
-console.log(linkedListicle);
-console.log(l1.head.data);
-console.log(linkedListicle.val);
+// console.log(linkedListicle);
+// console.log(l1.head.data);
+// console.log(linkedListicle.val);
 //returns:
 // LinkedList {
 //   head: ListNode { data: 2, next: ListNode { data: 4, next: [ListNode] } }
